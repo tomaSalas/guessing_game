@@ -40,7 +40,7 @@ def start_game():
     print("Welcome to Guessing game, made by Tomas!")
     lines()
     
-    correct_input = 1
+  
     count = 0
     ramdom_number  = randint(1, 10)
     play = 1
