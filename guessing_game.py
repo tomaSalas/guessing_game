@@ -10,7 +10,9 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 """
 
 from random import randint
+
     
+        
 
 def intro():
     print("-" * 40)
@@ -39,7 +41,7 @@ def start_game():
     # write your code inside this function.
 
     intro()
-  
+    highscore = list()
     count = 0
     ramdom_number  = randint(1, 10)
     play = 1
@@ -51,35 +53,40 @@ def start_game():
         except ValueError:
             print("Oh no! that is not a correct value for this game, Please try again")
         else:
-            if number == ramdom_number:
-                count += 1
-                print("You got it! It took you {} tries".format(count))
-                answer = input("would you like to play again? (y/n):    ")
-                while True:
-                    if answer.lower() == "y":
-                        intro()
-                        break
-                        
-                    elif answer.lower() == "n":
-                        print("Thank you for playing!")
-                        play = 0
-                        break
-                    else:
-                        print("Please choose a valid command! either \'y\' or \'n\'")
-                        answer = input("would you like to play again? (y/n):    ")
-                        
-            elif (ramdom_number < number):
-                print("Lower 💁‍♂️")
-                count += 1
-                continue
-                
-            elif (ramdom_number > number):
-                print("Higher 😋")
-                count += 1
-                continue
+            if (number >= 1) and (number <= 10):
+                if number == ramdom_number:
+                    count += 1
+                    print("You got it! It took you {} tries".format(count))
+                    answer = input("would you like to play again? (y/n):    ")
+                    while True:
+                        if answer.lower() == "y":
+                            intro()
+                            highscore.append(str(count))
+                            print("High score to bet " + str(highscore[-1]))
+                            break
+                            
+                        elif answer.lower() == "n":
+                            print("Thank you for playing!")
+                            play = 0
+                            break
+                        else:
+                            print("Please choose a valid command! either \'y\' or \'n\'")
+                            answer = input("would you like to play again? (y/n):    ")
+                            
+                elif (ramdom_number < number):
+                    print("Lower 💁‍♂️")
+                    count += 1
+                    continue
+                    
+                elif (ramdom_number > number):
+                    print("Higher 😋")
+                    count += 1
+                    continue
+                else:
+                    print("Something when wrong 🤷‍♂️")
             else:
-                print("Something when wrong 🤷‍♂️")
-  
+                print("that number is not in the ranged! Selecte a value between 1 and 10!! Try again")
+                continue
 
 
 # Kick off the program by calling the start_game function.
