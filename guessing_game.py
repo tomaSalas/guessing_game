@@ -41,7 +41,7 @@ def start_game():
     # write your code inside this function.
 
     intro()
-    highscore = list()
+    highscore = []
     count = 0
     ramdom_number  = randint(1, 10)
     play = 1
@@ -61,8 +61,9 @@ def start_game():
                     while True:
                         if answer.lower() == "y":
                             intro()
-                            highscore.append(str(count))
+                            highscore.append(count)
                             print("High score to bet " + str(highscore[-1]))
+                            count = 0
                             break
                             
                         elif answer.lower() == "n":
