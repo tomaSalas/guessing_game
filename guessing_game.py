@@ -39,34 +39,46 @@ def start_game():
     lines()
     print("Welcome to Guessing game, made by Tomas!")
     lines()
+    
+    correct_input = 1
     count = 0
     ramdom_number  = randint(1, 10)
-    while True:
-        
-        number = int(input("Pick a number between 1 and 10: "))
-        
-        if number == ramdom_number:
-            count += 1
-            print("You got it! It took you {} tries".format(count))
-            answer = input("would you like to play again? (y/n):    ")
-            if answer.lower() == "y":
-                start_game()
-                
-            elif answer.lower() == "n":
-                print("Thank you for playing!")
-                break
-            
-        elif (ramdom_number < number):
-            print("Lower 💁‍♂️")
-            count += 1
-            continue
-            
-        elif (ramdom_number > number):
-            print("Higher 😋")
-            count += 1
-            continue
+    play = 1
+    
+    
+    while (play):
+        try:
+            number = int(input("Pick a number between 1 and 10: "))
+        except ValueError:
+            print("Oh no! that is not a correct value for this game, Please try again")
         else:
-            print("That is not a valid input, please try again 🙈")
+            if number == ramdom_number:
+                count += 1
+                print("You got it! It took you {} tries".format(count))
+                answer = input("would you like to play again? (y/n):    ")
+                while True:
+                    if answer.lower() == "y":
+                        start_game()
+                        
+                    elif answer.lower() == "n":
+                        print("Thank you for playing!")
+                        play = 0
+                        break
+                    else:
+                        print("Please choose a valid command! either \'y\' or \'n\'")
+                        answer = input("would you like to play again? (y/n):    ")
+                        
+            elif (ramdom_number < number):
+                print("Lower 💁‍♂️")
+                count += 1
+                continue
+                
+            elif (ramdom_number > number):
+                print("Higher 😋")
+                count += 1
+                continue
+            else:
+                print("Something when wrong 🤷‍♂️")
   
 
 
