@@ -58,7 +58,7 @@ def start_game():
                 answer = input("would you like to play again? (y/n):    ")
                 while True:
                     if answer.lower() == "y":
-                        start_game()
+                        break
                         
                     elif answer.lower() == "n":
                         print("Thank you for playing!")
