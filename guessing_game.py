@@ -12,9 +12,10 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 from random import randint
     
 
-def lines():
+def intro():
     print("-" * 40)
-    
+    print("Welcome to Guessing game, made by Tomas!")
+    print("-" * 40)
     
 def start_game():
     """Psuedo-code Hints
@@ -36,10 +37,8 @@ def start_game():
     ( You can add more features/enhancements if you'd like to. )
     """
     # write your code inside this function.
-    lines()
-    print("Welcome to Guessing game, made by Tomas!")
-    lines()
-    
+
+    intro()
   
     count = 0
     ramdom_number  = randint(1, 10)
@@ -58,6 +57,7 @@ def start_game():
                 answer = input("would you like to play again? (y/n):    ")
                 while True:
                     if answer.lower() == "y":
+                        intro()
                         break
                         
                     elif answer.lower() == "n":
