@@ -1,12 +1,11 @@
+
+  
 """
 Python Web Development Techdegree
 Project 1 - Number Guessing Game
 --------------------------------
-
 For this first project we will be using Workspaces. 
-
 NOTE: If you strongly prefer to work locally on your own computer, you can totally do that by clicking: File -> Download Workspace in the file menu after you fork the snapshot of this workspace.
-
 """
 
 from random import randint
@@ -62,8 +61,9 @@ def start_game():
                         if answer.lower() == "y":
                             intro()
                             highscore.append(count)
-                            print("High score to bet " + str(highscore[-1]))
+                            print("High score to bet " + str(min(highscore)))
                             count = 0
+                            ramdom_number  = randint(1, 10)
                             break
                             
                         elif answer.lower() == "n":
@@ -92,3 +92,5 @@ def start_game():
 
 # Kick off the program by calling the start_game function.
 start_game()
+
+
